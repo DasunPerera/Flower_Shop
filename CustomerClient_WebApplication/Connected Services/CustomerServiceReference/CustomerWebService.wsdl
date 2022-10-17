@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="AutoCustomerId">
+        <s:complexType />
+      </s:element>
+      <s:element name="AutoCustomerIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AutoCustomerIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertCustomer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CustomerId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CustomerName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Contact" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertCustomerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="insertCustomerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="loginCustomer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="loginCustomerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="loginCustomerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AutoCustomerIdSoapIn">
+    <wsdl:part name="parameters" element="tns:AutoCustomerId" />
+  </wsdl:message>
+  <wsdl:message name="AutoCustomerIdSoapOut">
+    <wsdl:part name="parameters" element="tns:AutoCustomerIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertCustomerSoapIn">
+    <wsdl:part name="parameters" element="tns:insertCustomer" />
+  </wsdl:message>
+  <wsdl:message name="insertCustomerSoapOut">
+    <wsdl:part name="parameters" element="tns:insertCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="loginCustomerSoapIn">
+    <wsdl:part name="parameters" element="tns:loginCustomer" />
+  </wsdl:message>
+  <wsdl:message name="loginCustomerSoapOut">
+    <wsdl:part name="parameters" element="tns:loginCustomerResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CustomerWebServiceSoap">
+    <wsdl:operation name="AutoCustomerId">
+      <wsdl:input message="tns:AutoCustomerIdSoapIn" />
+      <wsdl:output message="tns:AutoCustomerIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertCustomer">
+      <wsdl:input message="tns:insertCustomerSoapIn" />
+      <wsdl:output message="tns:insertCustomerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="loginCustomer">
+      <wsdl:input message="tns:loginCustomerSoapIn" />
+      <wsdl:output message="tns:loginCustomerSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CustomerWebServiceSoap" type="tns:CustomerWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AutoCustomerId">
+      <soap:operation soapAction="http://tempuri.org/AutoCustomerId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertCustomer">
+      <soap:operation soapAction="http://tempuri.org/insertCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loginCustomer">
+      <soap:operation soapAction="http://tempuri.org/loginCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CustomerWebServiceSoap12" type="tns:CustomerWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AutoCustomerId">
+      <soap12:operation soapAction="http://tempuri.org/AutoCustomerId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertCustomer">
+      <soap12:operation soapAction="http://tempuri.org/insertCustomer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loginCustomer">
+      <soap12:operation soapAction="http://tempuri.org/loginCustomer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CustomerWebService">
+    <wsdl:port name="CustomerWebServiceSoap" binding="tns:CustomerWebServiceSoap">
+      <soap:address location="https://localhost:44311/CustomerWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CustomerWebServiceSoap12" binding="tns:CustomerWebServiceSoap12">
+      <soap12:address location="https://localhost:44311/CustomerWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
